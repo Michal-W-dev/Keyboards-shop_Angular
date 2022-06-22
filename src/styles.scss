@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  outline: none;
+}
+
+html {
+  font-size: 10px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body {
+  font-size: 1.6rem;
+  text-shadow: none;
+  box-sizing: border-box;
+  background-color: lavender;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: none;
+}
+
+h1 {
+  font-size: 2.4rem;
+  padding: 0.12rem 0.4rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Media Qeury */
+@media screen and (max-width:1000px) {
+  html {
+    font-size: 9px;
+  }
+}

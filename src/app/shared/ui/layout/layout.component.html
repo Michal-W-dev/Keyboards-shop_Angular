@@ -1,0 +1,54 @@
+<header class='header'>
+
+  <nav class="navbar bg-dark variant-dark fixed-top navbar-expand-lg">
+    <div class="container">
+      <div class='brandWrapper'>
+        <a class="navbar-brand" href="/" useBackground>KeyShop</a>
+      </div>
+      <form class='form' onSubmit='handleSubmit()'>
+        <input>
+        <button type="submit" class="btn-search"><i class="material-icons">search</i></button>
+      </form>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsive-navbar-nav"
+        aria-controls="responsive-navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-icons text-light">menu_open</span>
+      </button>
+
+      <nav class="collapse navbar-collapse" id="responsive-navbar-nav">
+        <div class="me-auto">
+          <a class="nav-link" (click)="toggleShowProducts()">Products
+            <i class="material-icons chevron-up" [ngClass]="{rotateChevron:showProducts}">expand_more</i>
+          </a>
+        </div>
+
+        <a class="nav-link cartDiv" routerLink="/cart" routerLinkActive="active">
+          <i class="material-icons">shopping_cart</i> Cart
+        </a>
+
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+          <i class="material-icons">person</i> Sign In
+        </a>
+        <a class="nav-link" routerLink="/admin" routerLinkActive="active">
+          <i class="material-icons">security</i> Admin
+        </a>
+      </nav>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="container">
+
+    <ng-content></ng-content>
+
+
+  </div>
+</main>
+<footer class='py-5 bg-dark'>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Copyright &copy; KeyboardsShop</h2>
+      </div>
+    </div>
+  </div>
+</footer>
