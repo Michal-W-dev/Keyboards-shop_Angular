@@ -1,34 +1,34 @@
 <header class='header'>
 
-  <nav class="navbar bg-dark variant-dark fixed-top navbar-expand-lg">
+  <nav class="navbar bg-dark variant-dark fixed-top navbar-expand-md" useLineAnimation #line="useLineDirective">
+    <div class="underline {{line.animationClass}}" [ngStyle]="line.position"></div>
     <div class="container">
       <div class='brandWrapper' useBackground>
-        <a class="navbar-brand" href="/">KeyShop</a>
+        <a class="navbar-brand" routerLink="/">KeyShop</a>
       </div>
       <form class='form' onSubmit='handleSubmit()'>
-        <input>
+        <input type="text" autoFocus placeholder="write what you're looking for">
         <button type="submit" class="btn-search"><i class="material-icons">search</i></button>
       </form>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsive-navbar-nav"
         aria-controls="responsive-navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-icons text-light">menu_open</span>
       </button>
-
       <nav class="collapse navbar-collapse" id="responsive-navbar-nav">
         <div class="me-auto">
-          <a class="nav-link" (click)="toggleShowProducts()">Products
-            <i class="material-icons chevron-up" [ngClass]="{rotateChevron:showProducts}">expand_more</i>
+          <a class="nav-link follow" [ngClass]="{active:showProducts}" (click)="toggleShowProducts()">Products
+            <i class="material-icons chevron-up" [ngClass]="{rotateChevron:showProducts}">arrow_forward_ios</i>
           </a>
         </div>
 
-        <a class="nav-link cartDiv" routerLink="/cart" routerLinkActive="active">
+        <a class="nav-link follow cartDiv" routerLink="/cart" routerLinkActive="active">
           <i class="material-icons">shopping_cart</i> Cart
         </a>
 
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">
-          <i class="material-icons">person</i> Sign In
+        <a class="nav-link follow" routerLink="/login" routerLinkActive="active">
+          <i class="material-icons">person</i> Login
         </a>
-        <a class="nav-link" routerLink="/admin" routerLinkActive="active">
+        <a class="nav-link follow" routerLink="/admin" routerLinkActive="active">
           <i class="material-icons">security</i> Admin
         </a>
       </nav>
@@ -37,9 +37,8 @@
 </header>
 <main>
   <div class="container">
-
+    <!----- router-outlet ------>
     <ng-content></ng-content>
-
 
   </div>
 </main>

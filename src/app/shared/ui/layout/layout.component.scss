@@ -33,13 +33,14 @@
   i {
     margin-right: 0.8rem;
     font-size: 2rem;
-    transform: translateY(4px);
+    // transform: translateY(4px);
     &.chevron-up {
+      transform: rotate(-90deg);
       margin-left: 1rem;
-      transition: .2s;
+      transition: .17s ease-in;
     }
     &.rotateChevron {
-      transform: rotate(180deg);
+      transform: rotate(-270deg);
     }
   }
   .brandWrapper {
@@ -174,9 +175,9 @@ input {
   border: none;
   border: 1px solid grey;
   height: 100%;
-  padding-left: 2rem;
+  padding-left: 1.8rem;
   display: inline-block;
-  width: 300px;
+  width: 30rem;
   &::placeholder {
     text-transform: uppercase;
     font-style: italic;
