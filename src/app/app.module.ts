@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/feature/home/home.component';
+import { CarouselComponent } from './home/ui/carousel/carousel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

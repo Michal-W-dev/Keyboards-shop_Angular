@@ -1,0 +1,36 @@
+<div class="carousel wrapper">
+  <div id="productCarousel" class="carousel slide">
+    <div class="carousel-indicators">
+      <button [ngClass]="{active: isFirst}" *ngFor="let _ of itemsArr; index as i; first as isFirst"
+        data-bs-target="#productCarousel" [attr.data-bs-slide-to]="i" attr.aria-label="Slide {{i+1}}"></button>
+    </div>
+    <div class="carousel-inner">
+
+      <div class="carousel-item {{i === 0 && 'active'}}" *ngFor="let item of itemsArr; index as i">
+        <img class="item {{i % 2 ? 'itemRight':'itemLeft'}}" [src]="products[i].images[0]" [alt]="products[i].name"
+          height='300rem'>
+        <div class="carousel-left {{i % 2 ? 'slide' : 'imgBackground'}}">
+          <h1 class="title">{{i % 2 ? products[i].brand : ''}}</h1>
+          <p class="description">{{i % 2 ? products[i].description : ''}}</p>
+        </div>
+        <div class="carousel-right {{i % 2 ? 'imgBackground' : 'slide'}}">
+          <h1 class="title">{{i % 2 ? '' : products[i].brand}}</h1>
+          <p class="description">{{i % 2 ? '' : products[i].description}}</p>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h1>{{products[i].name}}</h1>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</div>
