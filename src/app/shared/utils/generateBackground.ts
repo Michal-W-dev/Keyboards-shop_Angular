@@ -2,7 +2,7 @@ type Fn = (a: number, b: number, c: number) => string
 
 /**  
  * Generate dark background with light stripes
- * @param stripesNum - number of stripes
+ * @param arrLength - number of stripes
  * @param topSatur - top saturation (light stripes)
  * @param lowSatur - low saturation (dark stripes)
  * @returns backgroundImage
