@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import productsSeed from 'src/seed'
+import { IProduct } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-carousel',
@@ -8,7 +8,8 @@ import productsSeed from 'src/seed'
 })
 export class CarouselComponent {
   @Input() carouselItems = 4;
-  products = productsSeed
+  @Input() products: IProduct[] = [];
+
   get itemsArr() {
     // Not allow to surpass number of products. Return created array from requested number of items.
     const itemsNum = this.carouselItems < this.products.length ? this.carouselItems : this.products.length

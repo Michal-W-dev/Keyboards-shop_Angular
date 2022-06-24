@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/feature/home/home.component';
 import { CarouselComponent } from './home/ui/carousel/carousel.component';
+import { ProductCardComponent } from './home/feature/product-card/product-card.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { CarouselComponent } from './home/ui/carousel/carousel.component';
     AppComponent,
     HomeComponent,
     CarouselComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
