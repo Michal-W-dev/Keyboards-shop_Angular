@@ -7,8 +7,8 @@
   z-index: 0;
 
   // Gives full width within container
-  width: calc(100vw - 0px);
-  margin-left: calc(50% - 50vw);
+  width: calc(100vw - 16px);
+  margin-left: calc(50% - 50vw + 7px);
 
   &.wrapper {
     border-bottom: 2px solid black;

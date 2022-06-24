@@ -1,12 +1,13 @@
 <div class="carousel wrapper">
-  <div id="productCarousel" class="carousel slide">
+  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button [ngClass]="{active: isFirst}" *ngFor="let _ of itemsArr; index as i; first as isFirst"
         data-bs-target="#productCarousel" [attr.data-bs-slide-to]="i" attr.aria-label="Slide {{i+1}}"></button>
     </div>
-    <div class="carousel-inner">
 
-      <div class="carousel-item {{i === 0 && 'active'}}" *ngFor="let item of itemsArr; index as i">
+    <div class="carousel-inner">
+      <div class="carousel-item {{i === 0 && 'active'}}" *ngFor="let item of itemsArr; index as i"
+        data-bs-interval="4500">
         <img class="item {{i % 2 ? 'itemRight':'itemLeft'}}" [src]="products[i].images[0]" [alt]="products[i].name"
           height='300rem'>
         <div class="carousel-left {{i % 2 ? 'slide' : 'imgBackground'}}">
@@ -31,6 +32,6 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
 
+  </div>
 </div>
