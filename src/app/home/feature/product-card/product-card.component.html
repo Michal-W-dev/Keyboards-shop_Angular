@@ -6,7 +6,7 @@
   <div class="card-body">
     <div class="text-container">
       <p class="card-text">{{product?.price}} zł</p>
-      <app-rating [value]="product.rating" [numReviews]="product.numReviews"></app-rating>
+      <app-rating [value]="product.rating" [text]="product.numReviews.toString()"></app-rating>
     </div>
 
     <a routerLink="/product/{{product?._id}}">{{product?.name}}</a>

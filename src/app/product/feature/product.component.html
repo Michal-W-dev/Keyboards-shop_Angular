@@ -1,0 +1,99 @@
+<div class="product bg-primary pt-1" *ngIf="product" useBackground>
+  <div class="d-flex flex-column flex-lg-row mb-2">
+    <div class="imageWrapper">
+      <!-- Mini Images ------------->
+      <div class="miniImagesWrapper">
+        <div (click)="imageIdx = i" *ngFor="let image of product.images; index as i">
+          <img [src]="image" class="img-thumbnail" />
+        </div>
+      </div>
+      <!-- Main Image ---------->
+      <img class="image img-fluid" [src]="product.images[imageIdx]" (click)="displayModal()" [alt]="product.name" />
+      <!-- TODO add Modal component -->
+    </div>
+    <bs-row class="productWrapper">
+      <h1 class='pt-5 title'>{{product.name}}</h1>
+      <hr class='mb-1' />
+      <app-rating [value]="product.rating" [text]="numReviews" fontSize="1.5rem" class="d-flex justify-content-center">
+      </app-rating>
+      <hr class='mt-1' />
+      <bs-row class='mt-4 text-start'>
+        <bs-col class="specificationWrapper">
+          <h2>Specification:</h2>
+          <hr />
+          <div class='text-start pt-2'>
+            <p><span>Type:</span> {{product.category}} </p>
+            <p><span>Switches:</span> {{product.switches}} </p>
+            <p class='pt-3'>{{product.description}}</p>
+          </div>
+        </bs-col>
+
+        <!-- ADD TO CART section ----------->
+        <div>
+          <div class="cartWrapper">
+            <div class="card">
+              <div class="card-header text-light">
+                <bs-row>
+                  <bs-col class="col-6 col-md-12">
+                    <h2>Price: </h2>
+                  </bs-col>
+                  <bs-col class="col-6 col-md-12">
+                    <h2>{{product.price}} zł</h2>
+                  </bs-col>
+                </bs-row>
+              </div>
+              <hr />
+              <div clss="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngIf="!product.countInStock">
+                    <bs-row>
+                      <p class="outOfStock">Out Of Stock</p>
+                    </bs-row>
+                  </li>
+                  <li class="list-group-item" *ngIf="product.countInStock > 0">
+                    <bs-row>
+                      <bs-col class="col-6 col-md-12">
+                        <p>Quantity:</p>
+                      </bs-col>
+                      <bs-col class="col-6 col-md-12">
+                        <div class="dropdown">
+                          <button class="dropdown-toggle btn btn-primary" type="button" id="dropdownMenuQty"
+                            data-bs-toggle="dropdown"> {{qty}} </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuQty">
+                            <li *ngFor="let _ of qtyArray; index as i" class="dropdown-item" (click)="qty = i + 1">
+                              {{i + 1}}
+                            </li>
+                          </ul>
+                        </div>
+                      </bs-col>
+                    </bs-row>
+                  </li>
+                </ul>
+              </div>
+              <hr />
+              <div class="card-footer text-muted">
+                <button type="button" class="btn btn-success" (click)="handleAddToCart()"
+                  [disabled]="!product.countInStock">ADD
+                  TO CART
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </bs-row>
+    </bs-row>
+  </div>
+  <hr />
+  <bs-row>
+    <div class="description dark text-start">
+      <h2>Description: </h2>
+      <p>{{product.descriptionLong}}</p>
+    </div>
+    <hr />
+    <!-- TODO add Review component -->
+    <hr />
+    <div class="dark btn-goBack-wrapper">
+      <a routerLink="/"><button class="btn btn-primary btn-goBack">GO BACK</button></a>
+    </div>
+  </bs-row>
+</div>
