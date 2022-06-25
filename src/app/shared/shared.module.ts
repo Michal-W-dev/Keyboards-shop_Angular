@@ -4,6 +4,7 @@ import { LayoutComponent } from './ui/layout/layout.component';
 import { UseBackgroundDirective } from './use-background.directive';
 import { UseLineAnimationDirective } from './use-line-animation.directive';
 import { RouterModule } from '@angular/router';
+import { RatingComponent } from './feature/rating/rating.component';
 
 
 
@@ -11,12 +12,13 @@ import { RouterModule } from '@angular/router';
   declarations: [
     LayoutComponent,
     UseBackgroundDirective,
-    UseLineAnimationDirective
+    UseLineAnimationDirective,
+    RatingComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective]
+  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent]
 })
 export class SharedModule { }

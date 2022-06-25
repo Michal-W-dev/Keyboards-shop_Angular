@@ -1,0 +1,9 @@
+.star {
+  display: flex;
+  align-items: center;
+  font-size: var(--ratingFontSize);
+  i {
+    font-size: calc(var(--ratingFontSize) + 5px);
+    margin: .03rem;
+  }
+}
