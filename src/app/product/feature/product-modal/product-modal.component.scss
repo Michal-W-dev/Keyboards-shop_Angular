@@ -34,9 +34,11 @@ $margin: 1.1rem;
   position: relative;
   display: inline-block;
   width: 15rem;
-  height: 12rem;
+  height: auto;
+  min-height: 10rem;
   padding: 7px 9px;
   cursor: pointer;
+  line-height: 10rem;
 }
 
 @media screen and (max-width:999px) {
@@ -58,7 +60,7 @@ $margin: 1.1rem;
     }
     .miniImagesWrapper {
       bottom: 0;
-      margin-bottom: -115px;
+      margin-bottom: -91px;
     }
     .modal-dialog {
       max-width: 100%;

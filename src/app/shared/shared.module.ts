@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from './ui/layout/layout.component';
+import { LayoutComponent } from './feature/layout/layout.component';
 import { UseBackgroundDirective } from './use-background.directive';
 import { UseLineAnimationDirective } from './use-line-animation.directive';
 import { RouterModule } from '@angular/router';
@@ -17,7 +17,7 @@ import { RowComponent } from './ui/bs/row.component';
     UseLineAnimationDirective,
     RatingComponent,
     ColComponent,
-    RowComponent
+    RowComponent,
   ],
   imports: [
     CommonModule,
