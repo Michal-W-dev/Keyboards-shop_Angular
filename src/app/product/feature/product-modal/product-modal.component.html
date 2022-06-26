@@ -1,0 +1,23 @@
+<div class='modal product-modal fade' id="productModal" tabindex="-1" aria-labelledby="productModal" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class='modal-title text-light pl-3' id="contained-modal-title-vcenter">
+          {{name}}
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <img class='image' [src]='images[imgIndex]' alt='name' />
+      <!-- Mini Images ------------>
+      <div class="miniImagesWrapper">
+        <div *ngFor="let image of images; index as i" (click)="imgIndex = i">
+          <img [src]="image" class="img-fluid" />
+        </div>
+      </div>
+      <!--------------------------->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary py-3 px-4" data-bs-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>

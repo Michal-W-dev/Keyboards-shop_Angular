@@ -8,7 +8,7 @@ import productsSeed from 'src/seed'
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   imageIdx = 0;
   qty = 1;
   id = this.route.snapshot.params['id']
@@ -17,15 +17,8 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
-  }
-
   handleAddToCart() {
     console.log('ADD TO CART') //TODO 
-  }
-
-  displayModal() {
-    console.log('DISPLAY MODAL') //TODO 
   }
 
   get numReviews() { return this.product.numReviews === 1 ? '1 review' : `${this.product.numReviews} reviews` }

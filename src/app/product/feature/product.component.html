@@ -8,8 +8,10 @@
         </div>
       </div>
       <!-- Main Image ---------->
-      <img class="image img-fluid" [src]="product.images[imageIdx]" (click)="displayModal()" [alt]="product.name" />
-      <!-- TODO add Modal component -->
+      <img class="image img-fluid" [src]="product.images[imageIdx]" [alt]="product.name" data-bs-toggle="modal"
+        data-bs-target="#productModal" />
+      <app-product-modal [name]="product.name" [images]="product.images" [imgIndex]="imageIdx">
+      </app-product-modal>
     </div>
     <bs-row class="productWrapper">
       <h1 class='pt-5 title'>{{product.name}}</h1>
