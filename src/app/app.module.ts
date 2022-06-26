@@ -9,6 +9,7 @@ import { CarouselComponent } from './home/ui/carousel/carousel.component';
 import { ProductCardComponent } from './home/feature/product-card/product-card.component';
 import { ProductComponent } from './product/feature/product.component';
 import { ProductModalComponent } from './product/feature/product-modal/product-modal.component';
+import { ProductReviewComponent } from './product/feature/product-review/product-review.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ProductModalComponent } from './product/feature/product-modal/product-m
     ProductCardComponent,
     ProductComponent,
     ProductModalComponent,
+    ProductReviewComponent,
   ],
   imports: [
     BrowserModule,

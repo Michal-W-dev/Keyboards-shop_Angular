@@ -13,14 +13,14 @@
       <app-product-modal [name]="product.name" [images]="product.images" [imgIndex]="imageIdx">
       </app-product-modal>
     </div>
-    <bs-row class="productWrapper">
+    <div class="productWrapper row">
       <h1 class='pt-5 title'>{{product.name}}</h1>
       <hr class='mb-1' />
       <app-rating [value]="product.rating" [text]="numReviews" fontSize="1.5rem" class="d-flex justify-content-center">
       </app-rating>
       <hr class='mt-1' />
-      <bs-row class='mt-4 text-start'>
-        <bs-col class="specificationWrapper">
+      <div class='row mt-4 text-start'>
+        <div class="specificationWrapper col">
           <h2>Specification:</h2>
           <hr />
           <div class='text-start pt-2'>
@@ -28,36 +28,36 @@
             <p><span>Switches:</span> {{product.switches}} </p>
             <p class='pt-3'>{{product.description}}</p>
           </div>
-        </bs-col>
+        </div>
 
         <!-- ADD TO CART section ----------->
         <div>
           <div class="cartWrapper">
             <div class="card">
               <div class="card-header text-light">
-                <bs-row>
-                  <bs-col class="col-6 col-md-12">
+                <div class="row">
+                  <div class="col col-6 col-md-12">
                     <h2>Price: </h2>
-                  </bs-col>
-                  <bs-col class="col-6 col-md-12">
+                  </div>
+                  <div class="col col-6 col-md-12">
                     <h2>{{product.price}} zł</h2>
-                  </bs-col>
-                </bs-row>
+                  </div>
+                </div>
               </div>
               <hr />
               <div clss="card-body">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item" *ngIf="!product.countInStock">
-                    <bs-row>
+                    <div class="row">
                       <p class="outOfStock">Out Of Stock</p>
-                    </bs-row>
+                    </div>
                   </li>
                   <li class="list-group-item" *ngIf="product.countInStock > 0">
-                    <bs-row>
-                      <bs-col class="col-6 col-md-12">
+                    <div class="row">
+                      <div class="col col-6 col-md-12">
                         <p>Quantity:</p>
-                      </bs-col>
-                      <bs-col class="col-6 col-md-12">
+                      </div>
+                      <div class="col col-6 col-md-12">
                         <div class="dropdown">
                           <button class="dropdown-toggle btn btn-primary" type="button" id="dropdownMenuQty"
                             data-bs-toggle="dropdown"> {{qty}} </button>
@@ -67,8 +67,8 @@
                             </li>
                           </ul>
                         </div>
-                      </bs-col>
-                    </bs-row>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -82,20 +82,20 @@
             </div>
           </div>
         </div>
-      </bs-row>
-    </bs-row>
+      </div>
+    </div>
   </div>
   <hr />
-  <bs-row>
+  <div class="row">
     <div class="description dark text-start">
       <h2>Description: </h2>
       <p>{{product.descriptionLong}}</p>
     </div>
     <hr />
-    <!-- TODO add Review component -->
+    <app-product-review [rating]="product.rating" [numReviews]="product.numReviews"></app-product-review>
     <hr />
     <div class="dark btn-goBack-wrapper">
       <a routerLink="/"><button class="btn btn-primary btn-goBack">GO BACK</button></a>
     </div>
-  </bs-row>
+  </div>
 </div>

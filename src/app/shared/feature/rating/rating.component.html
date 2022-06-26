@@ -1,6 +1,6 @@
-<span class="star" [ngStyle]="{fontSize}">
+<span class="stars" [ngStyle]="{fontSize}">
   <i class="material-icons" *ngFor="let item of [1,2,3,4,5]; index as i" [ngStyle]="{color}">
     {{getStar(i)}}
   </i>
-  <span>&nbsp;({{text}})</span>
+  <span>&nbsp;{{text && '(' + text + ')'}}</span>
 </span>

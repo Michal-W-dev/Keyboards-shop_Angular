@@ -1,0 +1,33 @@
+<div class="reviews row px-md-5">
+  <div class="col column-1">
+    <div class="d-flex justify-content-center">
+      <div class="content text-center">
+        <div class="ratings"> <span class='product-rating'>{{avgRating}}</span><span>/ 5</span>
+          <app-rating [value]="rating"></app-rating>
+          <div class="rating-text"> <span>{{numReviews}} reviews</span> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col column-2">
+    <table class="text-left mx-auto my-3">
+      <tbody>
+        <tr *ngFor="let _ of starArray; index as i">
+          <td class=" rating-label"><i class="fas fa-star sm"></i> {{5-i}} </td>
+          <td class="rating-bar">
+            <div class="bar-container">
+              <div class="bar" [ngStyle]="{width: ratePercent(5-i)}"></div>
+            </div>
+          </td>
+          <td class="star-number text-right">{{countRate(5-i)}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col column-3">
+    <div class='write-review'>
+      <p>Help others to make their choice</p>
+      <button class="btn btn-info" variant='info'> Write review </button>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
   @Input() value: number[] = []
-  @Input() text = '0';
+  @Input() text = '';
   avgValue = 0;
   color = ''
   @HostBinding('style.--ratingFontSize') @Input() fontSize = '1.25rem'
