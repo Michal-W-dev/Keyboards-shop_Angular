@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { RatingComponent } from './feature/rating/rating.component';
 import { ColComponent } from './ui/bs/col.component';
 import { RowComponent } from './ui/bs/row.component';
+import { PopoverComponent } from './feature/popover/popover.component';
 
 
 
@@ -18,11 +19,12 @@ import { RowComponent } from './ui/bs/row.component';
     RatingComponent,
     ColComponent,
     RowComponent,
+    PopoverComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent]
+  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent, PopoverComponent]
 })
 export class SharedModule { }

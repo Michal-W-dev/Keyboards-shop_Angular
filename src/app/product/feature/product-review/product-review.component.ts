@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-review',
   templateUrl: './product-review.component.html',
-  styleUrls: ['./product-review.component.scss']
+  styleUrls: ['./product-review.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductReviewComponent implements OnInit {
   @Input() rating: number[] = []
@@ -15,7 +16,6 @@ export class ProductReviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.avgRating = this.rating.length ? Math.round(this.rating.reduce((acc, val) => acc + val) * 10 / this.rating.length) / 10 : 0;
-    console.log({ review: this.numReviews })
   }
 
   countRate = (whichRate: number) => {
