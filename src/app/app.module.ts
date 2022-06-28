@@ -10,6 +10,9 @@ import { ProductCardComponent } from './home/feature/product-card/product-card.c
 import { ProductComponent } from './product/feature/product.component';
 import { ProductModalComponent } from './product/feature/product-modal/product-modal.component';
 import { ProductReviewComponent } from './product/feature/product-review/product-review.component';
+import { CartComponent } from './cart/feature/cart.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -21,11 +24,13 @@ import { ProductReviewComponent } from './product/feature/product-review/product
     ProductComponent,
     ProductModalComponent,
     ProductReviewComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

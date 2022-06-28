@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/product.model';
 import productsSeed from 'src/seed'
 
@@ -14,12 +14,10 @@ export class ProductComponent {
   id = this.route.snapshot.params['id']
   product: IProduct = productsSeed.find(({ _id }) => _id === this.id) || productsSeed[0]
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
-  handleAddToCart() {
-    console.log('ADD TO CART') //TODO 
-  }
+  handleAddToCart = () => this.router.navigateByUrl(`/cart/${this.id}?qty=${this.qty}`)
 
   get numReviews() { return this.product.numReviews === 1 ? '1 review' : `${this.product.numReviews} reviews` }
   get qtyArray() { return [...Array(this.product.countInStock > 10 ? 10 : this.product.countInStock)] }
