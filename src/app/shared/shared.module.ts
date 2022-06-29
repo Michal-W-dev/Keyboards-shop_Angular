@@ -8,6 +8,7 @@ import { RatingComponent } from './feature/rating/rating.component';
 import { ColComponent } from './ui/bs/col.component';
 import { RowComponent } from './ui/bs/row.component';
 import { PopoverComponent } from './feature/popover/popover.component';
+import { MessageComponent } from './feature/message/message.component';
 
 
 
@@ -19,12 +20,13 @@ import { PopoverComponent } from './feature/popover/popover.component';
     RatingComponent,
     ColComponent,
     RowComponent,
-    PopoverComponent
+    PopoverComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent, PopoverComponent]
+  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent, PopoverComponent, MessageComponent]
 })
 export class SharedModule { }

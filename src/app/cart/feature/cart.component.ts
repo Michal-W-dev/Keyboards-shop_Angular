@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/product.model';
 import { CartService } from '../data/cart.service';
 import productsSeed from 'src/seed'
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -19,12 +20,12 @@ export class CartComponent {
   private product: IProduct | null = productsSeed.find(({ _id }) => _id === this.id) || null;
   qty = +this.route.snapshot.queryParams['qty']
 
-  constructor(private route: ActivatedRoute, public cartService: CartService, private router: Router) {
+  constructor(private route: ActivatedRoute, public cartService: CartService, private router: Router, public location: Location) {
     // Not allow to request unexisting (product) or (qty) -----------
     if (this.product) {
       const qty = (this.qty > this.product.countInStock) ? this.product.countInStock : this.qty
       cartService.update({ ...this.product, qty })
-      this.router.navigateByUrl('/cart')
+      this.router.navigateByUrl('/cart', { replaceUrl: true })
     }
   }
 

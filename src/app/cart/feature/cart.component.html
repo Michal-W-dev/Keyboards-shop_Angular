@@ -1,44 +1,44 @@
 <div class="cart" useBackground>
-  <div class="row">
+  <div class="row" *ngIf="(cart$ | async)?.cart as cart">
     <div class="col-lg-8 pb-5">
       <h1 class="title">SHOPPING CARD</h1>
-      <ng-container *ngIf="(cart$ | async)?.cart as cart">
-        <ng-container *ngIf="cart.length; else cartEmpty">
-          <ul class="list-group" *ngFor="let product of cart; trackBy:trackByFn">
-            <li class="list-group-item">
+      <ng-container *ngIf="cart.length; else cartEmpty">
+        <ul class="list-group" *ngFor="let product of cart; trackBy:trackByFn">
+          <li class="list-group-item">
 
-              <div class="row item">
-                <div class="col column-1-image">
-                  <img class="img-fluid rounded" [src]="product.images[0]" [alt]="product.name" />
-                </div>
-                <div class="col column-2-name">
-                  <span class="itemName" routerLink="/product/{{product._id}}"> {{product.name}} </span>
-                </div>
-                <div class="col column-3-qty">
-                  <form class="form" [ngClass]="{max: product.qty === product.countInStock}">
-                    <input class="input" placeholder='0' [ngModel]="product.qty" name="qtyInput" #qtyInput="ngModel"
-                      required (input)="cartService.changeQty(qtyInput, product)" />
-
-                    <button (click)="cartService.changeQty(qtyInput, product, - 1)" class="btnMinus">-</button>
-                    <button (click)="cartService.changeQty(qtyInput, product, 1)" class="btnPlus">+</button>
-                  </form>
-                </div>
-                <div class="col column-4-price">{{product.price + ' zł'}}</div>
-                <div class="col-1 column-5-bin">
-                  <i class="material-icons bin-icon" (click)="this.cartService.delete(product._id!)">delete_sweep</i>
-                </div>
+            <div class="row item">
+              <div class="col column-1-image">
+                <img class="img-fluid rounded" [src]="product.images[0]" [alt]="product.name" />
               </div>
-            </li>
-          </ul>
-        </ng-container>
+              <div class="col column-2-name">
+                <span class="itemName" routerLink="/product/{{product._id}}"> {{product.name}} </span>
+              </div>
+              <div class="col column-3-qty">
+                <form class="form" [ngClass]="{max: product.qty === product.countInStock}">
+                  <input class="input" placeholder='0' [ngModel]="product.qty" name="qtyInput" #qtyInput="ngModel"
+                    required (input)="cartService.changeQty(qtyInput, product)" />
+
+                  <button (click)="cartService.changeQty(qtyInput, product, - 1)" class="btnMinus">-</button>
+                  <button (click)="cartService.changeQty(qtyInput, product, 1)" class="btnPlus">+</button>
+                </form>
+              </div>
+              <div class="col column-4-price">{{product.price + ' zł'}}</div>
+              <div class="col-1 column-5-bin">
+                <i class="material-icons bin-icon" (click)="this.cartService.delete(product._id!)">delete_sweep</i>
+              </div>
+            </div>
+          </li>
+        </ul>
       </ng-container>
       <ng-template #cartEmpty>
-        <!-- TODO Message Component ------------>
-        Cart Is Empty
+        <app-message variant='info' [trigger]="!cart.length">
+          Your cart is empty
+          <button (click)="location.back()" class="btn btn-outline-primary btn-message">Go Back</button>
+        </app-message>
       </ng-template>
     </div>
 
-    <div class="col-lg-4" *ngIf="(cart$ | async)?.cart as cart">
+    <div class="col-lg-4">
       <div class="card cardWrapper text-center">
         <div class="card-header"></div>
         <div class="card-body">
