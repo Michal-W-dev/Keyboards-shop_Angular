@@ -9,6 +9,8 @@ import { ColComponent } from './ui/bs/col.component';
 import { RowComponent } from './ui/bs/row.component';
 import { PopoverComponent } from './feature/popover/popover.component';
 import { MessageComponent } from './feature/message/message.component';
+import { FormGroupComponent } from './feature/form-group/form-group.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,12 +23,14 @@ import { MessageComponent } from './feature/message/message.component';
     ColComponent,
     RowComponent,
     PopoverComponent,
-    MessageComponent
+    MessageComponent,
+    FormGroupComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
-  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent, PopoverComponent, MessageComponent]
+  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent, PopoverComponent, MessageComponent, FormGroupComponent]
 })
 export class SharedModule { }

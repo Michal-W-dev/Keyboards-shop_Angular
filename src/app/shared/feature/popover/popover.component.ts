@@ -14,6 +14,7 @@ export class PopoverComponent implements AfterViewInit {
   @Input() content = 'Sorry, this component is not fully functional yet.'
   @Input() placement = 'top'
   @Input() offset = '0, 0'
+
   ngAfterViewInit(): void {
     if (this.child) new bootstrap.Popover(this.child.nativeElement)
   }
