@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -20,11 +20,10 @@ export class FormGroupComponent implements AfterViewInit {
   @Input() autofocus = false
   @Input() placeholder?: string;
   @Input() name = ''
-  @Input() get type() { return (this.name === 'email') ? 'email' : (this.name === 'password') ? 'password' : 'text' }
   @Input() control: FormControl = new FormControl;
+  get type() { return this.generateType(['email', 'password']) }
 
+  ngAfterViewInit(): void { if (this.autofocus) this.input.nativeElement.focus() }
 
-  ngAfterViewInit(): void {
-    if (this.autofocus) this.input.nativeElement.focus()
-  }
+  generateType = (types: string[]) => types.find(type => this.name.includes(type)) || 'text'
 }

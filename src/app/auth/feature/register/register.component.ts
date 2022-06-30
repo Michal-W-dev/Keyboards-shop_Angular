@@ -2,20 +2,22 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent {
-  loginForm: FormGroup = new FormGroup({
+export class RegisterComponent {
+  registerForm: FormGroup = new FormGroup({
+    name: new FormControl(''),
     email: new FormControl('', [Validators.email]),
-    password: new FormControl('', [Validators.minLength(3)])
+    password: new FormControl('', [Validators.minLength(3)]),
+    'confirm-password': new FormControl('', [Validators.minLength(3)])
   })
   backgroundAnim = false;
   showMsg = false;
-
   constructor(private cd: ChangeDetectorRef) { }
+
 
   handleSubmit() {
     this.backgroundAnim = true;
@@ -23,8 +25,8 @@ export class LoginComponent {
 
     // Authorization is not yet implemented
     this.showMsg = true;
-    console.log(this.loginForm.value);
+    console.log(this.registerForm.value);
   }
 
-  getControl(inputName: string) { return this.loginForm.get(inputName) as FormControl }
+  getControl(inputName: string) { return this.registerForm.get(inputName) as FormControl }
 }

@@ -20,13 +20,16 @@
             <i class="material-icons chevron-up" [ngClass]="{rotateChevron:showProducts}">arrow_forward_ios</i>
           </a>
         </div>
-
-        <a class="nav-link follow cartDiv" routerLink="/cart" routerLinkActive="active">
+        <a class="nav-link follow" routerLink="/cart" routerLinkActive="active">
           <i class="material-icons">shopping_cart</i> Cart
         </a>
-
-        <a class="nav-link follow" routerLink="/login" routerLinkActive="active">
-          <i class="material-icons">person</i> Login
+        <a *ngIf="!router.url.includes('register')" class="nav-link follow" routerLinkActive="active"
+          routerLink="/login">
+          <i class="material-icons">person</i> Sign in
+        </a>
+        <a *ngIf="router.url.includes('register')" class="nav-link follow" routerLinkActive="active"
+          routerLink="/register">
+          <i class="material-icons">person</i> Register
         </a>
         <a class="nav-link follow" routerLink="/admin" routerLinkActive="active">
           <i class="material-icons">security</i> Admin

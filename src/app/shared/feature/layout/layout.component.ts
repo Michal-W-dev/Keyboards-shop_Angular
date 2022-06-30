@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -8,6 +9,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class LayoutComponent {
   showProducts = false;
+
+  constructor(public router: Router) { }
 
   handleSubmit = () => { }
 
