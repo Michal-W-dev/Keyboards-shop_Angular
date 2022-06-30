@@ -1,0 +1,22 @@
+<div class="login" [ngClass]="{backgroundAnim}" useBackground>
+
+  <h1 class="title">Sign In</h1>
+
+  <Form [formGroup]="loginForm" (submit)="handleSubmit()">
+    <app-form-group [control]="getControl('email')" name="email" [autofocus]="true"></app-form-group>
+    <app-form-group [control]="getControl('password')" name="password"></app-form-group>
+
+    <app-popover title="Under Construction" offset="50, 20">
+      <button type='submit' class="btn btn-success btnSignIn"> Sign In </button>
+    </app-popover>
+  </Form>
+  <div class='row text-center'>
+    <div class="col">
+      <span class='span-new-customer'>Don't have an account? - </span>
+      <button class="btn btn-outline-secondary btnRegister" routerLink="/register">
+        Register
+      </button>
+    </div>
+  </div>
+</div>
+<app-message variant='info' [trigger]="showMsg">Authorization is not yet implemented</app-message>

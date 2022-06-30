@@ -11,7 +11,8 @@ import { ProductComponent } from './product/feature/product.component';
 import { ProductModalComponent } from './product/feature/product-modal/product-modal.component';
 import { ProductReviewComponent } from './product/feature/product-review/product-review.component';
 import { CartComponent } from './cart/feature/cart.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './auth/feature/login/login.component';
 
 
 
@@ -25,12 +26,14 @@ import { FormsModule } from '@angular/forms';
     ProductModalComponent,
     ProductReviewComponent,
     CartComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
