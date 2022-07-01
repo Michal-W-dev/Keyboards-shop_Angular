@@ -11,6 +11,7 @@ import { PopoverComponent } from './feature/popover/popover.component';
 import { MessageComponent } from './feature/message/message.component';
 import { FormGroupComponent } from './feature/form-group/form-group.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component';
 
 
 
@@ -24,13 +25,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     RowComponent,
     PopoverComponent,
     MessageComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    MiniCartComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule
   ],
-  exports: [LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent, RowComponent, PopoverComponent, MessageComponent, FormGroupComponent]
+  exports: [
+    LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent,
+    RowComponent, PopoverComponent, MessageComponent, FormGroupComponent, MiniCartComponent
+  ]
 })
 export class SharedModule { }

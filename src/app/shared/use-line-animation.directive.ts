@@ -13,7 +13,7 @@ import { ChangeDetectorRef, Directive, ElementRef, HostListener, NgZone, Rendere
   exportAs: 'useLineDirective'
 })
 export class UseLineAnimationDirective {
-  position = { left: '0px', width: '46px' }
+  position = { left: '-109px', width: '46px' }
   animationClass = ''
   prevElement: EventTarget | null = null;
 

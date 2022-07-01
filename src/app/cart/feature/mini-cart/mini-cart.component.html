@@ -1,0 +1,37 @@
+<div class="empty-space" [ngClass]="{showCart}"></div>
+<div class="miniCart" [ngClass]="{showCart}" *ngIf="(cartService.cart$ | async)?.cart as cart" [routerLink]="undefined">
+  <div class="row">
+    <div class="col">
+      <ul class="list-group list-group-flush" *ngFor="let product of cart">
+        <li class="list-group-item">
+          <div class="row item">
+            <div class="col" style="flex: 2">
+              <img class="img-fluid rounded" [src]="product.images[0]" [alt]="product.name" />
+            </div>
+            <div class="col" style="flex: 6">
+              <span class="itemName" routerLink="/product/{{product._id}}"> {{product.name}} </span>
+            </div>
+            <div class="col">
+              <span>
+                {{product.qty}}
+              </span>
+            </div>
+            <div class="col" class="price" style="flex: 2">
+              {{product.price + ' zł'}}
+            </div>
+            <div class="col">
+              <i class="material-icons bin-icon" (click)="cartService.delete(product._id!)">delete_sweep</i>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="total">Total: {{totalPrice(cart)}} </div>
+  </div>
+  <div class="row" class="btnsDiv justify-content-between">
+    <button routerLink="/cart"><i class="material-icons cart-icon">shopping_cart_checkout</i> Go to Cart </button>
+    <button routerLink="/login" [queryParams]="{redirect:'shipping'}">Checkout</button>
+  </div>
+</div>

@@ -24,7 +24,7 @@
               </div>
               <div class="col column-4-price">{{product.price + ' zł'}}</div>
               <div class="col-1 column-5-bin">
-                <i class="material-icons bin-icon" (click)="this.cartService.delete(product._id!)">delete_sweep</i>
+                <i class="material-icons bin-icon" (click)="cartService.delete(product._id!)">delete_sweep</i>
               </div>
             </div>
           </li>
