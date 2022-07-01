@@ -13,6 +13,7 @@ import { FormGroupComponent } from './feature/form-group/form-group.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component';
 import { TotalCartPricePipe } from '../cart/total-cart-price.pipe';
+import { ShowMiniCartDirective } from './show-mini-cart.directive';
 
 
 
@@ -29,6 +30,7 @@ import { TotalCartPricePipe } from '../cart/total-cart-price.pipe';
     FormGroupComponent,
     MiniCartComponent,
     TotalCartPricePipe,
+    ShowMiniCartDirective,
   ],
   imports: [
     CommonModule,

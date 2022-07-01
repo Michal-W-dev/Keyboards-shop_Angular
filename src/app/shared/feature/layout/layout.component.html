@@ -20,8 +20,7 @@
             <i class="material-icons chevron-up" [ngClass]="{rotateChevron:showProducts}">arrow_forward_ios</i>
           </a>
         </div>
-        <div class="nav-link follow cartDiv" (mouseenter)="showMiniCart=true" (mouseleave)="showMiniCart=false"
-          routerLinkActive="active">
+        <div class="nav-link follow cartDiv" routerLinkActive="active" showMiniCart>
           <app-mini-cart [showCart]="showMiniCart"></app-mini-cart>
           <a routerLink="/cart">
             <i class="material-icons">shopping_cart</i> Cart
