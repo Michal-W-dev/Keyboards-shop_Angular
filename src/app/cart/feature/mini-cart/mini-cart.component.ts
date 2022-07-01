@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IProduct } from 'src/app/models/product.model';
 import { CartService } from '../../data/cart.service';
 
 @Component({
@@ -11,10 +10,5 @@ import { CartService } from '../../data/cart.service';
 export class MiniCartComponent {
   @Input() showCart = true;
 
-  constructor(public cartService: CartService) {
-  }
-
-  totalPrice = (cart: IProduct[]) => (
-    (!cart.length) ? '0 zł' : cart.reduce((acc, val) => val.qty! * val.price + acc, 0).toFixed(2) + ' zł'
-  )
+  constructor(public cartService: CartService) { }
 }

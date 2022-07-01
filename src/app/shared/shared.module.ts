@@ -12,6 +12,7 @@ import { MessageComponent } from './feature/message/message.component';
 import { FormGroupComponent } from './feature/form-group/form-group.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component';
+import { TotalCartPricePipe } from '../cart/total-cart-price.pipe';
 
 
 
@@ -27,6 +28,7 @@ import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component
     MessageComponent,
     FormGroupComponent,
     MiniCartComponent,
+    TotalCartPricePipe,
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,7 @@ import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component
   ],
   exports: [
     LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent,
-    RowComponent, PopoverComponent, MessageComponent, FormGroupComponent, MiniCartComponent
+    RowComponent, PopoverComponent, MessageComponent, FormGroupComponent, MiniCartComponent, TotalCartPricePipe
   ]
 })
 export class SharedModule { }

@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="total">Total: {{totalPrice(cart)}} </div>
+    <div class="total">Total: {{cart | totalPrice}}</div>
   </div>
   <div class="row" class="btnsDiv justify-content-between">
     <button routerLink="/cart"><i class="material-icons cart-icon">shopping_cart_checkout</i> Go to Cart </button>

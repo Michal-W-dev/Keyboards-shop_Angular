@@ -21,17 +21,13 @@ export class CartComponent {
   qty = +this.route.snapshot.queryParams['qty']
 
   constructor(private route: ActivatedRoute, public cartService: CartService, private router: Router, public location: Location) {
-    // Not allow to request unexisting (product) or (qty) -----------
     if (this.product) {
+      // Not allow to request unexisting (product) or (qty) -----------
       const qty = (this.qty > this.product.countInStock) ? this.product.countInStock : this.qty
       cartService.update({ ...this.product, qty })
       this.router.navigateByUrl('/cart', { replaceUrl: true })
     }
   }
-
-  totalPrice = (cart: IProduct[]) => (
-    (!cart.length) ? '0 zł' : cart.reduce((acc, val) => val.qty! * val.price + acc, 0).toFixed(2) + ' zł'
-  )
 
   checkoutHandler = () => console.log('PROCEED TO CHECKOUT') //TODO
 
