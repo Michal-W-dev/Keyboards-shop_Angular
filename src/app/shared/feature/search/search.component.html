@@ -1,0 +1,37 @@
+<div class="search">
+  <div class='keyboardType-container' [style.transform]="showProducts ? 'scale(1)' : 'scale(1,0)'">
+    <hr />
+    <div *ngFor="let type of types">
+      <div class="keyboardType" routerLink="/keyboards" [queryParams]="{search: type}">
+        {{type}}
+      </div>
+      <hr />
+    </div>
+  </div>
+  <ng-container *ngIf="search$ | async as search">
+    <div class='row miniSearch-container' *ngIf="filteredProducts | async as products">
+      <div class='col miniSearch-cards'>
+        <div class='not-found' *ngIf="!products.length"> The product is not found.</div>
+        <div class="miniCard" *ngFor="let product of products; index as i" [style.animationDelay]="i*0.1+'s'">
+          <img [src]="product.images[0]" [alt]="product.name" width='60px' />
+          <div (click)="toProductPage(product._id!)">
+            <p>{{product.name}}</p>
+            <p>{{product.price.toFixed(2)}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-1 typesBrands" *ngIf="products.length">
+        <ul>
+          <h2 class="title">TYPE:</h2>
+          <li *ngFor="let product of filterUniqueSearchedTypes(products)" (click)="toSearchPage(product.category!)">
+            {{product.category}}
+          </li>
+        </ul>
+        <ul>
+          <h2 class="title">BRAND:</h2>
+          <li *ngFor="let product of products" (click)="toSearchPage(product.brand!)">{{product.brand}}</li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+</div>

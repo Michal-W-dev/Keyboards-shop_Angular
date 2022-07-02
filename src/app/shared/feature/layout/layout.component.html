@@ -3,11 +3,13 @@
   <nav class="navbar bg-dark variant-dark fixed-top navbar-expand-md" useLineAnimation #line="useLineDirective">
     <div class="underline {{line.animationClass}}" [ngStyle]="line.position"></div>
     <div class="container">
+      <app-search [search$]="search$" [showProducts]="showProducts" (emitHide)="hideSearch()">
+      </app-search>
       <div class='brandWrapper' useBackground>
         <a class="navbar-brand" routerLink="/">KeyShop</a>
       </div>
-      <form class='form' onSubmit='handleSubmit()'>
-        <input type="text" autoFocus placeholder="write what you're looking for">
+      <form class='form' (submit)='handleSubmit()' [formGroup]="searchForm">
+        <input type="text" placeholder="write what you're looking for" formControlName="search">
         <button type="submit" class="btn-search"><i class="material-icons">search</i></button>
       </form>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsive-navbar-nav"

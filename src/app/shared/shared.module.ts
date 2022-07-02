@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component';
 import { TotalCartPricePipe } from '../cart/total-cart-price.pipe';
 import { ShowMiniCartDirective } from './show-mini-cart.directive';
+import { SearchComponent } from './feature/search/search.component';
 
 
 
@@ -31,6 +32,7 @@ import { ShowMiniCartDirective } from './show-mini-cart.directive';
     MiniCartComponent,
     TotalCartPricePipe,
     ShowMiniCartDirective,
+    SearchComponent,
   ],
   imports: [
     CommonModule,

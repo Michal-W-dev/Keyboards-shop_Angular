@@ -192,6 +192,12 @@ input {
     font-style: italic;
     letter-spacing: 1px;
     font-size: 1.4rem;
+    transition: transform 1s cubic-bezier(0.1, 0.7, 1.0, 0.1), color .12s .88s, font-weight .05s .95s;
+  }
+  &:focus::placeholder {
+    color: rgb(73, 73, 73);
+    transform: translate(79%);
+    font-weight: bold;
   }
 }
 
