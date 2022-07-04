@@ -95,6 +95,12 @@ inset 0 0 0 2px white,
       background-color: rgba(128, 128, 128, 0.1);
     }
   }
+  .types li {
+    text-transform: capitalize;
+  }
+  .brands li {
+    text-transform: uppercase;
+  }
 }
 
 /* Products dropdown ------------------------------------------------- */

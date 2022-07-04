@@ -1,0 +1,46 @@
+<div class="keyboards">
+  <div class="row justify-content-center my-5">
+    <div class="col col-3 col-sm-2 justify-content-center form-section">
+      <h1 class="title">FILTERS</h1>
+      <p *ngIf="search" class="filter">
+        <span class="px-2">{{search}}</span>
+        <i class="material-icons" routerLink="/keyboards" [queryParams]="clearFilter()"
+          (click)="search = null">clear</i>
+      </p>
+      <select class="form-select mb-3 types" [size]="types.size + 1" aria-label="multiple select">
+        <ng-container *ngFor="let type of types">
+          <option *ngIf="{badge: numOfProductType(type)} as v" [value]="type" [selected]="type === curType"
+            routerLink="/keyboards" [queryParams]="{type, search}" [attr.data-content]="v.badge"
+            [ngClass]="{showBadge: !!v.badge}">
+            {{type}}
+          </option>
+        </ng-container>
+        <option value="all" [selected]="!curType" routerLink="/keyboards"> - </option>
+      </select>
+      <select class="form-select brands" [size]="brands.size + 1" aria-label="multiple select">
+        <option *ngFor="let brand of brands; index as i" [value]="brand" [selected]="brand === curBrand"
+          routerLink="/keyboards" [queryParams]="{brand, search}" [attr.data-content]="numOfProductBrand(brand)"
+          [ngClass]="{showBadge: !!numOfProductBrand(brand)}">
+          {{brand}}
+        </option>
+        <option value="all" [selected]="!curBrand" routerLink="/keyboards"> - </option>
+      </select>
+    </div>
+    <div class="col col-9 col-sm-10 cards">
+      <div class="row justify-content-center">
+        <app-product-card *ngFor="let product of products" [product]="product"
+          class="col-xxl-3 col-lg-4 col-sm-6 col-12">
+        </app-product-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="message" *ngIf="!products?.length">
+    <app-message class="message" variant='secondary' [trigger]="!products?.length">
+      No products found
+      <button class="btn btn-outline-primary btn-message" routerLink="/keyboards" (click)="search = null">
+        Clear filter
+      </button>
+    </app-message>
+  </div>
+</div>

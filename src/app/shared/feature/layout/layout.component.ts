@@ -28,12 +28,13 @@ export class LayoutComponent {
   }
 
   toggleShowProducts() {
-    this.showProducts = !this.showProducts
+    this.showProducts = !this.showProducts;
     this.searchForm.reset()
   }
 
   handleSubmit = () => {
     const search = this.searchForm.get('search')?.value
-    this.router.navigateByUrl(`/keyboards/?search=${search}`)
+    this.router.navigateByUrl(`/keyboards?search=${search}`);
+    this.searchForm.reset();
   }
 }

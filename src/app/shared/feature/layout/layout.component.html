@@ -3,7 +3,7 @@
   <nav class="navbar bg-dark variant-dark fixed-top navbar-expand-md" useLineAnimation #line="useLineDirective">
     <div class="underline {{line.animationClass}}" [ngStyle]="line.position"></div>
     <div class="container">
-      <app-search [search$]="search$" [showProducts]="showProducts" (emitHide)="hideSearch()">
+      <app-search [search$]="search$" [showProducts]="showProducts" (hide)="hideSearch()">
       </app-search>
       <div class='brandWrapper' useBackground>
         <a class="navbar-brand" routerLink="/">KeyShop</a>

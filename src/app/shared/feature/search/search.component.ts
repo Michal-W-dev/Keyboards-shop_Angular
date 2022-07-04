@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { IProduct } from 'src/app/models/product.model';
 import seedProduct from 'src/seed'
@@ -12,18 +11,17 @@ import seedProduct from 'src/seed'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent implements OnInit {
-  @Output() emitHide = new EventEmitter()
-
-  // Search by types -------------
-  @Input() showProducts = true;
-  types = ['mechanical', 'hybrid', 'membrane']
+  @Output() hide = new EventEmitter()
 
   // Search by input -------------
   @Input() search$?: Observable<string>
   products: IProduct[] = seedProduct
   filteredProducts?: Observable<IProduct[]>
 
-  constructor(private router: Router) { }
+  // Search by types -------------
+  @Input() showProducts = true;
+  types = new Set(this.products.map(({ category }) => category?.toLowerCase()))
+
 
   ngOnInit(): void {
     this.filteredProducts = this.search$?.pipe(map(search => (
@@ -31,20 +29,7 @@ export class SearchComponent implements OnInit {
     )))
   }
 
-  toSearchPage = (type: string) => {
-    this.router.navigateByUrl(`/keyboards/?search=${type}`);
-    this.emitHide.emit()
-  }
-
-  toProductPage = (_id: string) => {
-    this.router.navigateByUrl(`/product/${_id}`)
-    this.emitHide.emit()
-  }
-
-  filterUniqueSearchedTypes = (filteredProducts: IProduct[]) => {
-    const i: string[] = []
-    return filteredProducts.filter(({ category }, idx) => (
-      (category) ? i.push(category) && i.indexOf(category) === idx : false
-    ))
-  }
+  filterUnique = (filteredProducts: IProduct[], by: keyof IProduct) => (
+    new Set(filteredProducts.map(product => (product[by] as string).toLowerCase()))
+  )
 }

@@ -13,6 +13,7 @@ import { CartComponent } from './cart/feature/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/feature/login/login.component';
 import { RegisterComponent } from './auth/feature/register/register.component';
+import { KeyboardsComponent } from './keyboards/keyboards.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { RegisterComponent } from './auth/feature/register/register.component';
     CartComponent,
     LoginComponent,
     RegisterComponent,
+    KeyboardsComponent,
   ],
   imports: [
     BrowserModule,

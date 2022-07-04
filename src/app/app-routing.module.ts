@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/feature/login/login.component';
 import { RegisterComponent } from './auth/feature/register/register.component';
 import { CartComponent } from './cart/feature/cart.component';
 import { HomeComponent } from './home/feature/home.component';
+import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { ProductComponent } from './product/feature/product.component';
 
 
@@ -16,8 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'admin', component: HomeComponent },
   { path: 'product/:id', component: ProductComponent },
-  { path: 'keyboards', component: HomeComponent },
-  { path: 'keyboards/:id', component: HomeComponent },
+  { path: 'keyboards', component: KeyboardsComponent },
 ];
 
 @NgModule({
