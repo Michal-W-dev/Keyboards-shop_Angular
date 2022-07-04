@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/feature/login/login.component';
 import { RegisterComponent } from './auth/feature/register/register.component';
 import { KeyboardsComponent } from './keyboards/keyboards.component';
+import { OptionDirective } from './keyboards/option.directive';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { KeyboardsComponent } from './keyboards/keyboards.component';
     LoginComponent,
     RegisterComponent,
     KeyboardsComponent,
+    OptionDirective
   ],
   imports: [
     BrowserModule,

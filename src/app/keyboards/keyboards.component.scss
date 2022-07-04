@@ -12,8 +12,15 @@
   align-items: center;
   font-size: 1.8rem;
   color: white;
+  transform: scale(1, 0);
+  height: 0;
+  transition: .1s;
   i {
     cursor: pointer;
+  }
+  &.search {
+    height: 2.7rem;
+    transform: scale(1)
   }
 }
 

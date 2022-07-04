@@ -9,14 +9,14 @@ import { IProduct } from '../models/product.model';
   styleUrls: ['./keyboards.component.scss']
 })
 export class KeyboardsComponent {
-  query = ''
+  search: string | null = null;
   curBrand = ''
   curType = ''
-  search: string | null = null;
-  searchedProducts?: IProduct[];
-  products?: IProduct[];
-  types = new Set(seedProducts.map(({ category }) => category.toLowerCase()))
   brands = new Set(seedProducts.map(({ brand }) => brand.toLowerCase()))
+  types = new Set(seedProducts.map(({ category }) => category.toLowerCase()))
+  products?: IProduct[];
+  searchedProducts?: IProduct[];
+
 
   constructor(private route: ActivatedRoute) {
     route.queryParams.subscribe(({ search, brand, type }) => {
@@ -25,21 +25,17 @@ export class KeyboardsComponent {
       if (type) [this.curBrand, this.curType] = ['', type]
       if (search) {
         this.search = search;
-        this.searchedProducts = seedProducts.filter(({ name, category }) => ([name, category].some(el => el?.toLowerCase().includes(search))))
-      } else this.searchedProducts = seedProducts
+        this.products = this.filterProducts(seedProducts, search)
+      } else this.products = seedProducts
 
-      this.query = type || brand || search
-      this.products = (this.query) ? this.searchedProducts?.filter(({ name, category }) => ([name, category].some(el => el?.toLowerCase().includes(this.query)))) : seedProducts
+      const query: string = type || brand || search
+      this.searchedProducts = (query) ? this.filterProducts(this.products, query) : seedProducts
     });
   }
 
-  numOfProductType(type: string) {
-    return this.searchedProducts?.filter(({ category }) => category?.toLowerCase() === type).length
-  }
-
-  numOfProductBrand(brand: string) {
-    return this.searchedProducts?.filter(product => product.brand?.toLowerCase() === brand).length
-  }
-
   clearFilter = () => ({ brand: this.curBrand || null, type: this.curType || null })
+
+  filterProducts = (products: IProduct[], filterBy: string) => (
+    products.filter(({ name, category }) => ([name, category].some(el => el?.toLowerCase().includes(filterBy))))
+  )
 }
