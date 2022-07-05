@@ -37,9 +37,11 @@
           routerLink="/register">
           <i class="material-icons">person</i> Register
         </a>
-        <a class="nav-link follow" routerLink="/admin" routerLinkActive="active">
-          <i class="material-icons">security</i> Admin
-        </a>
+        <app-popover title="Under Construction" placement="bottom" offset="[0, 12]">
+          <a class="nav-link follow text-secondary" routerLink="/admin" routerLinkActive="active">
+            <i class="material-icons">security</i> Admin
+          </a>
+        </app-popover>
       </nav>
     </div>
   </nav>
