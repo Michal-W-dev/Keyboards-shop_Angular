@@ -58,9 +58,11 @@
           </div>
         </div>
         <div class="card-footer">
-          <button class=" btn btn-success btnCheckout" (click)="checkoutHandler()" [disabled]="!cart.length">PROCEED
-            TO CHECKOUT
-          </button>
+          <app-popover placement="bottom" offset="[0,25]">
+            <button class=" btn btn-success btnCheckout" (click)="checkoutHandler()" [disabled]="!cart.length">PROCEED
+              TO CHECKOUT
+            </button>
+          </app-popover>
         </div>
       </div>
     </div>
