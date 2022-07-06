@@ -28,5 +28,5 @@ export class RegisterComponent {
     console.log(this.registerForm.value);
   }
 
-  getControl(inputName: string) { return this.registerForm.get(inputName) as FormControl }
+  getControl = (inputName: string) => this.registerForm.get(inputName) as FormControl
 }

@@ -1,0 +1,5 @@
+<div class='selectPage' useBackground>
+  <div *ngFor="let pageName of ['products', 'profile']" [ngClass]="{active: router.url.includes(pageName)}"
+    [routerLink]="['/admin', pageName]">{{pageName}}
+  </div>
+</div>

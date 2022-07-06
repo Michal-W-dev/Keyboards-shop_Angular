@@ -1,0 +1,36 @@
+<div class="profileWrapper">
+  <div class="profile" [ngClass]="{backgroundAnim}" useBackground>
+
+    <h1 class="title">PROFILE</h1>
+    <div class="row">
+      <div class='col col-xs-auto col-xl-5 profile-section'>
+        <form [formGroup]="profileForm">
+
+          <app-form-group [control]="getControl('name')" name="name" [autofocus]="true" [inline]="true">
+          </app-form-group>
+          <app-form-group [control]="getControl('email')" name="email" [inline]="true"></app-form-group>
+          <app-form-group [control]="getControl('password')" name="password" [inline]="true"></app-form-group>
+          <app-form-group [control]="getControl('confirm-password')" name="Confirm password"
+            placeholder="Confirm password" [inline]="true">
+          </app-form-group>
+
+          <div class="form-group formGroup-inline">
+            <label class="form-label" for="isAdmin">Is Admin</label>
+            <div [ngClass]="{checked: isAdmin}">
+              <input type="checkbox" id="isAdmin" class="form-check-input" formControlName="isAdmin"
+                (change)="isAdmin= !isAdmin">
+            </div>
+          </div>
+
+          <app-popover offset="[0, 20]">
+            <button type='submit' class='btn btn-success btnUpdate' (click)="handleSubmit()"> Update
+              Profile
+            </button>
+          </app-popover>
+        </form>
+      </div>
+    </div>
+  </div>
+  <app-select-page></app-select-page>
+  <app-message variant='info' [trigger]="showMsg">Authorization is not yet implemented</app-message>
+</div>

@@ -5,7 +5,7 @@
       <div class="col col-auto py-2">
         <h1 class='title'>PRODUCTS</h1>
       </div>
-      <div class='col col-auto order-xl-2 py-2 col-btn-create'>
+      <div class='col col-auto order-xl-2 py-2'>
         <app-popover placement="bottom" offset="[0, 20]"
           content="Sorry, this component is not yet connected to database">
           <button class='btn btn-create'>
@@ -61,5 +61,5 @@
     </div>
     <app-message variant="secondary" [trigger]="!filteredProducts?.length">No products found</app-message>
   </div>
-  <!-- TODO select page component -->
+  <app-select-page></app-select-page>
 </div>

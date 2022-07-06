@@ -2,18 +2,22 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-admin-profile',
+  templateUrl: './admin-profile.component.html',
+  styleUrls: ['./admin-profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent {
-  loginForm: FormGroup = new FormGroup({
+export class AdminProfileComponent {
+  profileForm: FormGroup = new FormGroup({
+    name: new FormControl(''),
     email: new FormControl('', [Validators.email]),
-    password: new FormControl('', [Validators.minLength(3)])
+    password: new FormControl('', [Validators.minLength(3)]),
+    'confirm-password': new FormControl('', [Validators.minLength(3)]),
+    isAdmin: new FormControl(false)
   })
   backgroundAnim = false;
   showMsg = false;
+  isAdmin = false;
 
   constructor(private cd: ChangeDetectorRef) { }
 
@@ -23,8 +27,8 @@ export class LoginComponent {
 
     // Authorization is not yet implemented
     this.showMsg = true;
-    console.log('Form value: ', this.loginForm.value);
+    console.log('Form value: ', this.profileForm.value);
   }
 
-  getControl = (inputName: string) => this.loginForm.get(inputName) as FormControl
+  getControl = (inputName: string) => this.profileForm.get(inputName) as FormControl
 }

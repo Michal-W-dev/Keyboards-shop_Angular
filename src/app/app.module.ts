@@ -17,6 +17,8 @@ import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { OptionDirective } from './keyboards/option.directive';
 import { AdminProductsComponent } from './admin/feature/admin-products/admin-products.component';
 import { FilterProductsPipe } from './admin/filter-products.pipe';
+import { SelectPageComponent } from './admin/feature/select-page/select-page.component';
+import { AdminProfileComponent } from './admin/feature/admin-profile/admin-profile.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { FilterProductsPipe } from './admin/filter-products.pipe';
     KeyboardsComponent,
     OptionDirective,
     AdminProductsComponent,
-    FilterProductsPipe
+    FilterProductsPipe,
+    SelectPageComponent,
+    AdminProfileComponent
   ],
   imports: [
     BrowserModule,

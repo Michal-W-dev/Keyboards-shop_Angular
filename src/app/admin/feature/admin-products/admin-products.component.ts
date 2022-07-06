@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IProduct } from 'src/app/models/product.model';
 import seedProducts from 'src/seed'
@@ -6,7 +6,8 @@ import seedProducts from 'src/seed'
 @Component({
   selector: 'app-admin-products',
   templateUrl: './admin-products.component.html',
-  styleUrls: ['./admin-products.component.scss']
+  styleUrls: ['./admin-products.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminProductsComponent {
   products: IProduct[] = seedProducts;

@@ -37,7 +37,7 @@
           routerLink="/register">
           <i class="material-icons">person</i> Register
         </a>
-        <a class="nav-link follow" routerLink="/admin/products" routerLinkActive="active">
+        <a class="nav-link follow" routerLink="/admin/products" [ngClass]="{active: router.url.includes('/admin')}">
           <i class="material-icons">security</i> Admin
         </a>
       </nav>
