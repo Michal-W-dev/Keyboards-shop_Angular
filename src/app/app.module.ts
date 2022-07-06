@@ -15,6 +15,8 @@ import { LoginComponent } from './auth/feature/login/login.component';
 import { RegisterComponent } from './auth/feature/register/register.component';
 import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { OptionDirective } from './keyboards/option.directive';
+import { AdminProductsComponent } from './admin/feature/admin-products/admin-products.component';
+import { FilterProductsPipe } from './admin/filter-products.pipe';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { OptionDirective } from './keyboards/option.directive';
     LoginComponent,
     RegisterComponent,
     KeyboardsComponent,
-    OptionDirective
+    OptionDirective,
+    AdminProductsComponent,
+    FilterProductsPipe
   ],
   imports: [
     BrowserModule,

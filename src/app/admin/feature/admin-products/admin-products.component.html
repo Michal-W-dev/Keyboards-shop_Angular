@@ -1,0 +1,65 @@
+<div class='productsWrapper'>
+  <div class='products' useBackground>
+
+    <div class='row header mx-0 mb-3'>
+      <div class="col col-auto py-2">
+        <h1 class='title'>PRODUCTS</h1>
+      </div>
+      <div class='col col-auto order-xl-2 py-2 col-btn-create'>
+        <app-popover placement="bottom" offset="[0, 20]"
+          content="Sorry, this component is not yet connected to database">
+          <button class='btn btn-create'>
+            <i class="material-icons">add</i> Create Product
+          </button>
+        </app-popover>
+      </div>
+      <div class='col col-12 col-xl-6 my-1 form-group'>
+        <app-form-group placeholder='search product' [float]="true" [autofocus]="true" [control]="control">
+        </app-form-group>
+      </div>
+    </div>
+    <div class=" table-responsive">
+      <table class='table table-sm table-striped table-hover'>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>IMAGE</th>
+            <th>SWITCHES</th>
+            <th>STOCK</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class='table-tr' *ngFor="let product of control.value | filterProducts">
+            <td>{{product._id}}</td>
+            <td>{{product.name}}</td>
+            <td>
+              <img class="img-fluid rounded" [src]='product.images[0]' [alt]='product.name' width='65px' />
+            </td>
+            <td>
+              {{product.switches}}
+            </td>
+            <td>{{product.countInStock}}</td>
+            <td>
+              <app-popover placement="bottom" offset="[0, 20]"
+                content="Sorry, this component is not yet connected to database">
+                <button class='btns btn btn-edit btn-primary'>
+                  <i class='material-icons'>edit</i>
+                </button>
+              </app-popover>
+              <app-popover placement="bottom" offset="[0, 20]"
+                content="Sorry, this component is not yet connected to database">
+                <button class='btns btn btn-delete btn-danger'>
+                  <i class='material-icons'>delete_forever</i>
+                </button>
+              </app-popover>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <app-message variant="secondary" [trigger]="!filteredProducts?.length">No products found</app-message>
+  </div>
+  <!-- TODO select page component -->
+</div>

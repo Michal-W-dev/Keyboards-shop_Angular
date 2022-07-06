@@ -1,7 +1,7 @@
 <div class="form-group" [ngClass]="{inline}">
   <label [for]="name" *ngIf="!float">{{name}}</label>
   <input [formControl]="control" [type]="type" class="form-control" [ngClass]="{inline}" [id]="name"
-    [attr.aria-describedby]="name" [placeholder]="float && ' ' || placeholder || 'Enter '+ name"
+    [attr.aria-describedby]="name || placeholder" [placeholder]="float && ' ' || placeholder || 'Enter '+ name"
     [style.width]="inline ? 'auto': '100%'" autocomplete="off" required #input>
-  <label for="input" *ngIf="float" class="form-placeholder">{{placeholder}}</label>
+  <label [for]="name || placeholder" *ngIf="float" class="form-placeholder">{{placeholder}}</label>
 </div>

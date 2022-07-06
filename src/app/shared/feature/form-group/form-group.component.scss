@@ -105,11 +105,12 @@
     padding-left: 0.5rem;
     transition: .2s transform;
     opacity: 0.9;
+    pointer-events: none;
   }
   .form-control {
     &:focus+.form-placeholder,
     &:valid+.form-placeholder {
-      transform: scale(0.75) translate(-45%, -130%);
+      transform: scale(0.75) translate(-45%, -110%);
       color: white;
       opacity: 1;
       text-shadow: 1px 1px 1px black, 1px 1px 2px black;
