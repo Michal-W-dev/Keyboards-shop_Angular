@@ -1,0 +1,18 @@
+:host {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  button {
+    font-size: 2.2rem;
+    text-shadow: 1px 1px black;
+    border: 1px solid rgb(255, 0, 0);
+    box-shadow: 1px 1px 1px black, inset 0 0 1px red;
+    span {
+      margin: 0 0.3rem;
+      font-size: 1.9rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .5), 0 0 12px orangered;
+    }
+  }
+}

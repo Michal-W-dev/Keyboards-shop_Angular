@@ -15,6 +15,7 @@ import { MiniCartComponent } from '../cart/feature/mini-cart/mini-cart.component
 import { TotalCartPricePipe } from '../cart/total-cart-price.pipe';
 import { ShowMiniCartDirective } from './show-mini-cart.directive';
 import { SearchComponent } from './feature/search/search.component';
+import { LoaderComponent } from './feature/loader/loader.component';
 
 
 
@@ -33,6 +34,7 @@ import { SearchComponent } from './feature/search/search.component';
     TotalCartPricePipe,
     ShowMiniCartDirective,
     SearchComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { SearchComponent } from './feature/search/search.component';
   ],
   exports: [
     LayoutComponent, UseBackgroundDirective, UseLineAnimationDirective, RatingComponent, ColComponent,
-    RowComponent, PopoverComponent, MessageComponent, FormGroupComponent, MiniCartComponent, TotalCartPricePipe
+    RowComponent, PopoverComponent, MessageComponent, FormGroupComponent, MiniCartComponent, TotalCartPricePipe,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

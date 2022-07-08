@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, shareReplay, switchMap } from 'rxjs';
 import { IProduct } from 'src/app/models/product.model';
-import seedProduct from 'src/seed'
+import { ProductService } from 'src/app/product/data/product.service';
 
 
 @Component({
@@ -15,18 +15,21 @@ export class SearchComponent implements OnInit {
 
   // Search by input -------------
   @Input() search$?: Observable<string>
-  products: IProduct[] = seedProduct
+  products$ = this.productService.getProducts().pipe(shareReplay())
   filteredProducts?: Observable<IProduct[]>
 
   // Search by types -------------
   @Input() showProducts = true;
-  types = new Set(this.products.map(({ category }) => category?.toLowerCase()))
+  types = ['mechanical', 'membrane', 'hybrid']
 
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.filteredProducts = this.search$?.pipe(map(search => (
-      this.products.filter(({ name, category }) => ([name, category].some(el => el?.toLowerCase().includes(search))))
-    )))
+    this.filteredProducts = this.search$?.pipe(debounceTime(50), distinctUntilChanged(), switchMap(search =>
+      this.products$.pipe(map(products => products.filter(({ name, category }) => ([name, category].some(el => el?.toLowerCase().includes(search)))
+      ))))
+    )
   }
 
   filterUnique = (filteredProducts: IProduct[], by: keyof IProduct) => (

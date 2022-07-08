@@ -1,4 +1,4 @@
-<div class="search">
+<div class="search" *ngIf="filteredProducts | async as products">
   <div class='keyboardType-container' [style.transform]="showProducts ? 'scale(1)' : 'scale(1,0)'">
     <hr />
     <div *ngFor="let type of types">
@@ -10,7 +10,7 @@
     </div>
   </div>
   <ng-container *ngIf="search$ | async as search">
-    <div class='row miniSearch-container' *ngIf="filteredProducts | async as products">
+    <div class='row miniSearch-container'>
       <div class='col miniSearch-cards'>
         <div class='not-found' *ngIf="!products.length"> The product is not found.</div>
         <div class="miniCard" *ngFor="let product of products; index as i" [style.animationDelay]="i*0.1+'s'">

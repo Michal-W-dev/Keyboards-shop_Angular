@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/models/product.model';
-import productsSeed from 'src/seed'
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ProductService } from 'src/app/product/data/product.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
-  products: IProduct[] = productsSeed
-  constructor() { }
+export class HomeComponent {
+  products$ = this.productService.getProducts()
+  error$ = this.productService.error$
 
-  ngOnInit(): void {
-  }
-
+  constructor(private productService: ProductService) { }
 }

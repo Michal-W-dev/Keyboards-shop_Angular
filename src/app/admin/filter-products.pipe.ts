@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { map } from 'rxjs';
 import { AdminProductsComponent } from './feature/admin-products/admin-products.component';
 
 @Pipe({ name: 'filterProducts' })
@@ -8,8 +9,11 @@ export class FilterProductsPipe implements PipeTransform {
 
   transform(value: string) {
     value = value || ''
-    this.host.filteredProducts = this.host.products.filter(({ _id, name, switches }) => [_id, name, switches].some(el => String(el).toLowerCase().includes(value?.toLowerCase())))
-    return this.host.filteredProducts
-  }
 
+    this.host.filteredProducts$ = this.host.products$?.pipe(map(
+      products => products.filter(({ _id, name, switches }) => [_id, name, switches].some(el => String(el).toLowerCase().includes(value?.toLowerCase())))
+    ))
+
+    return this.host.filteredProducts$
+  }
 }

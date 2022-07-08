@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Observable, shareReplay } from 'rxjs';
 import { IProduct } from 'src/app/models/product.model';
-import seedProducts from 'src/seed'
+import { ProductService } from 'src/app/product/data/product.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -10,7 +11,9 @@ import seedProducts from 'src/seed'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminProductsComponent {
-  products: IProduct[] = seedProducts;
-  filteredProducts?: IProduct[];
+  products$ = this.productService.getProducts().pipe(shareReplay())
+  filteredProducts$?: Observable<IProduct[]>
   control = new FormControl();
+
+  constructor(private productService: ProductService) { }
 }

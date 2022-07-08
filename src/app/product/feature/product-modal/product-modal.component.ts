@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-modal',
   templateUrl: './product-modal.component.html',
-  styleUrls: ['./product-modal.component.scss']
+  styleUrls: ['./product-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductModalComponent {
   @Input() name = ''

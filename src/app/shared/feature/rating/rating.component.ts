@@ -1,9 +1,10 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.scss']
+  styleUrls: ['./rating.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RatingComponent implements OnInit {
   @Input() value: number[] = []

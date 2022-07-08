@@ -13,11 +13,11 @@ export class AdminProfileComponent {
     email: new FormControl('', [Validators.email]),
     password: new FormControl('', [Validators.minLength(3)]),
     'confirm-password': new FormControl('', [Validators.minLength(3)]),
-    isAdmin: new FormControl(false)
+    isAdmin: new FormControl(true)
   })
   backgroundAnim = false;
   showMsg = false;
-  isAdmin = false;
+  isAdmin = true;
 
   constructor(private cd: ChangeDetectorRef) { }
 
