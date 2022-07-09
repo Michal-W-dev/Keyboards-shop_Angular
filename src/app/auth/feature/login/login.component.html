@@ -1,5 +1,4 @@
-<div class="login" [ngClass]="{backgroundAnim}" useBackground>
-
+<div class="login" [ngClass]="{bgAnim: backgroundAnim | async}" useBackground>
   <h1 class="title">Sign In</h1>
 
   <form [formGroup]="loginForm" (submit)="handleSubmit()">

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { delay, Observable, of, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -14,14 +15,12 @@ export class RegisterComponent {
     password: new FormControl('', [Validators.minLength(3)]),
     'confirm-password': new FormControl('', [Validators.minLength(3)])
   })
-  backgroundAnim = false;
   showMsg = false;
-  constructor(private cd: ChangeDetectorRef) { }
+  backgroundAnim?: Observable<boolean>;
 
 
   handleSubmit() {
-    this.backgroundAnim = true;
-    setTimeout(() => { this.backgroundAnim = false; this.cd.markForCheck() }, 2000)
+    this.backgroundAnim = of(false).pipe(delay(2000), startWith(true))
 
     // Authorization is not yet implemented
     this.showMsg = true;

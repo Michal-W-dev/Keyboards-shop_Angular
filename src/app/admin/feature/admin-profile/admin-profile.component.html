@@ -1,5 +1,5 @@
 <div class="profileWrapper">
-  <div class="profile" [ngClass]="{backgroundAnim}" useBackground>
+  <div class="profile" [class.bgAnim]="backgroundAnim | async" useBackground>
 
     <h1 class="title">PROFILE</h1>
     <div class="row">
