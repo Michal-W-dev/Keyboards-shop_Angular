@@ -20,7 +20,7 @@ export class FormGroupComponent implements AfterViewInit {
   @Input() autofocus = false
   @Input() placeholder?: string;
   @Input() name = ''
-  @Input() control: FormControl = new FormControl;
+  @Input() control = new FormControl;
   get type() { return this.generateType(['email', 'password']) }
 
   ngAfterViewInit(): void { if (this.autofocus) this.input.nativeElement.focus() }

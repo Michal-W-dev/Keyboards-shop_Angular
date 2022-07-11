@@ -9,12 +9,12 @@ import { delay, Observable, of, startWith } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminProfileComponent {
-  profileForm: FormGroup = new FormGroup({
+  profileForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl('', [Validators.email]),
     password: new FormControl('', [Validators.minLength(3)]),
     'confirm-password': new FormControl('', [Validators.minLength(3)]),
-    isAdmin: new FormControl(true)
+    isAdmin: new FormControl<boolean>(true)
   })
   showMsg = false;
   isAdmin = true;

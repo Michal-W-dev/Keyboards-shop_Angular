@@ -13,7 +13,7 @@ import { ProductService } from 'src/app/product/data/product.service';
 export class AdminProductsComponent {
   products$ = this.productService.getProducts().pipe(shareReplay())
   filteredProducts$?: Observable<IProduct[]>
-  control = new FormControl();
+  control = new FormControl('');
 
   constructor(private productService: ProductService) { }
 }

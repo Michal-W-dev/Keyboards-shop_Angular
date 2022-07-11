@@ -110,5 +110,7 @@
       }
     }
   },
-  "defaultProject": "keyboards-ang"
+  "cli": {
+    "analytics": false
+  }
 }

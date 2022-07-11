@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { pluck } from 'rxjs';
+import { map, of, pluck } from 'rxjs';
 import { CartService } from 'src/app/cart/data/cart.service';
 
 @Component({
@@ -16,9 +16,9 @@ export class LayoutComponent {
   cartItemsNum$ = this.cartService.cart$.pipe(pluck('cartItemsNum'))
 
   // Search products ---------
-  searchForm = new FormGroup({ search: new FormControl() })
+  searchForm = new FormGroup({ search: new FormControl('') })
   showProducts = false;
-  search$ = this.searchForm.valueChanges.pipe(pluck('search'))
+  search$ = this.searchForm.valueChanges.pipe(map(({ search }) => search || ''))
 
   constructor(public router: Router, private cartService: CartService) { }
 

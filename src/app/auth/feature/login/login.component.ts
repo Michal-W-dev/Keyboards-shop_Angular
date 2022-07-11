@@ -9,7 +9,7 @@ import { delay, Observable, of, startWith } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  loginForm: FormGroup = new FormGroup({
+  loginForm = new FormGroup({
     email: new FormControl('', [Validators.email]),
     password: new FormControl('', [Validators.minLength(3)])
   })

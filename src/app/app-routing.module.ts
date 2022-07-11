@@ -12,16 +12,17 @@ import { ProductComponent } from './product/feature/product.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'cart/:id', component: CartComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'admin', component: HomeComponent },
-  { path: 'product/:id', component: ProductComponent },
-  { path: 'keyboards', component: KeyboardsComponent },
-  { path: 'admin/products', component: AdminProductsComponent },
-  { path: 'admin/profile', component: AdminProfileComponent }
+  { path: '', component: HomeComponent, title: 'Home' },
+  { path: 'cart', component: CartComponent, title: 'Cart' },
+  { path: 'cart/:id', component: CartComponent, title: 'Cart' },
+  { path: 'login', component: LoginComponent, title: 'Login' },
+  { path: 'register', component: RegisterComponent, title: 'Register' },
+  { path: 'product/:id', component: ProductComponent, title: 'Product' },
+  { path: 'keyboards', component: KeyboardsComponent, title: 'Search' },
+  { path: 'admin/products', component: AdminProductsComponent, title: 'Admin products' },
+  { path: 'admin/profile', component: AdminProfileComponent, title: 'Admin profile' },
+  { path: 'not-found', component: HomeComponent, title: 'Not Found' },
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({

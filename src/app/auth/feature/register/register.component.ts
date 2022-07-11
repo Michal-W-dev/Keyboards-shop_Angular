@@ -9,7 +9,7 @@ import { delay, Observable, of, startWith } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent {
-  registerForm: FormGroup = new FormGroup({
+  registerForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl('', [Validators.email]),
     password: new FormControl('', [Validators.minLength(3)]),
