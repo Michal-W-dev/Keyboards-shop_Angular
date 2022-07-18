@@ -175,29 +175,54 @@ footer {
 /* ------------------------------------------------------------------- */
 
 /* Search form -------------------------------------------------------- */
+$input-width: 30rem;
+
 .form {
   height: 3.1rem;
   display: flex;
-}
+  position: relative;
 
-input {
-  border: none;
-  border: 1px solid grey;
-  height: 100%;
-  padding-left: 1.8rem;
-  display: inline-block;
-  width: 30rem;
-  &::placeholder {
+  input {
+    border: none;
+    border: 1px solid grey;
+    height: 100%;
+    padding-left: 1.79rem;
+    padding-right: 7rem;
+    display: inline-block;
+    width: $input-width;
+
+    // On transition
+    &:focus+.placeholder-wrapper .placeholder,
+    &:valid+.placeholder-wrapper .placeholder {
+      transform: translate(79%);
+      font-weight: bold;
+      z-index: 0;
+    }
+  }
+
+  // Hide placeholder when animate outside of the wrapper
+  .placeholder-wrapper {
+    position: absolute;
+    left: 1.8rem;
+    height: 100%;
+    width: $input-width;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .placeholder {
+    color: black;
+    background-color: transparent;
+    position: absolute;
+    text-shadow: none;
     text-transform: uppercase;
     font-style: italic;
+    height: 100%;
+    display: flex;
+    align-items: center;
     letter-spacing: 1px;
-    font-size: 1.4rem;
+    font-size: 1.41rem;
     transition: transform 1s cubic-bezier(0.1, 0.7, 1.0, 0.1), color .12s .88s, font-weight .05s .95s;
-  }
-  &:focus::placeholder {
-    color: rgb(73, 73, 73);
-    transform: translate(79%);
-    font-weight: bold;
   }
 }
 

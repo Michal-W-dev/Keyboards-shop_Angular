@@ -9,7 +9,10 @@
         <a class="navbar-brand" routerLink="/">KeyShop</a>
       </div>
       <form class='form' (submit)='handleSubmit()' [formGroup]="searchForm">
-        <input type="text" placeholder="write what you're looking for" formControlName="search">
+        <input type="text" formControlName="search" required>
+        <div class="placeholder-wrapper">
+          <label class="placeholder">write what you're looking for</label>
+        </div>
         <button type="submit" class="btn-search"><i class="material-icons">search</i></button>
       </form>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsive-navbar-nav"
