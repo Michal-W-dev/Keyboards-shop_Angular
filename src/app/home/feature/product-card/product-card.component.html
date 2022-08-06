@@ -1,15 +1,15 @@
 <div class="card mx-xs-1 mx-lg-3 my-4" *ngIf="product">
-  <a class="images-container" routerLink="/product/{{product?._id}}">
-    <img [src]="product.images?.[0]" [alt]="product.name" />
-    <img [src]="product.images?.[1]" [alt]="product.name" />
+  <a class="images-container" routerLink="/product/{{product._id}}">
+    <img [src]="product.images[0]" [alt]="product.name" />
+    <img [src]="product.images[1]" [alt]="product.name" />
   </a>
   <div class="card-body">
     <div class="text-container">
-      <p class="card-text">{{product?.price}} zł</p>
+      <p class="card-text">{{product.price}} zł</p>
       <app-rating [value]="product.rating" [text]="product.numReviews.toString()"></app-rating>
     </div>
 
-    <a routerLink="/product/{{product?._id}}">{{product?.name}}</a>
+    <a routerLink="/product/{{product._id}}">{{product.name}}</a>
 
     <div class="movable-slate">
       <div class="movable-slate-body">
@@ -20,7 +20,7 @@
           </button>
         </a>
         <a *ngIf="product.countInStock" class="icon-container" [ngClass]="{'green-color':isHovered}"
-          routerLink="/cart/{{product?._id}}" [queryParams]="{qty:1}">
+          routerLink="/cart/{{product._id}}" [queryParams]="{qty:1}">
           <i class="material-icons icon">add_shopping_cart</i>
         </a>
       </div>

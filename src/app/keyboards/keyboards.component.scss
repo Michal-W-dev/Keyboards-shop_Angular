@@ -1,8 +1,29 @@
+.keyboards {
+  // expand container
+  max-width: 1550px;
+  width: calc(92vw);
+  margin-left: calc(50% - 46vw);
+  @media (min-width: 1550px) {
+    margin-left: -70px;
+  }
+}
+
+app-product-card ::ng-deep {
+  min-width: 269px;
+  .card {
+    min-width: 260px;
+    .icon-container {
+      background-color: rgb(95, 95, 95);
+    }
+  }
+}
+
 .title {
   position: relative;
   z-index: 3;
   font-style: italic;
   color: rgba(255, 255, 255, 0.861);
+  max-width: 200px;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -29,6 +50,7 @@
   z-index: 3;
   text-align: center;
   min-width: 120px;
+  max-width: 200px;
   overflow-y: hidden;
   font-size: 1.6rem;
   color: white;
