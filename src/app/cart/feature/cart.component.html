@@ -2,7 +2,7 @@
   <div class="row" *ngIf="(cart$ | async)?.cart as cart">
     <div class="col-lg-8 pb-5">
       <h1 class="title">SHOPPING CARD</h1>
-      <ng-container *ngIf="cart.length; else cartEmpty">
+      <ng-container *ngIf="cart.length">
         <ul class="list-group" *ngFor="let product of cart; trackBy:trackByFn">
           <li class="list-group-item">
 
@@ -30,42 +30,55 @@
           </li>
         </ul>
       </ng-container>
-      <ng-template #cartEmpty>
-        <app-message variant='info' [trigger]="!cart.length">
-          Your cart is empty
-          <button (click)="location.back()" class="btn btn-outline-primary btn-message">Go Back</button>
-        </app-message>
-      </ng-template>
+
+      <!-- Message for empty cart -->
+      <ng-container *ngTemplateOutlet="cartEmpty; context: {cart}"></ng-container>
     </div>
 
+    <!-- CARD with total price -->
     <div class="col-lg-4">
-      <div class="card cardWrapper text-center">
-        <div class="card-header"></div>
-        <div class="card-body">
-          <div class="card-title">
-            <div class="row">
-              <div class="col">
-                <h3>
-                  Total Price:
-                </h3>
-              </div>
-              <div class="col">
-                <h3>
-                  {{cart | totalPrice}}
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <app-popover placement="bottom" offset="[0,25]">
-            <button class=" btn btn-success btnCheckout" (click)="checkoutHandler()" [disabled]="!cart.length">PROCEED
-              TO CHECKOUT
-            </button>
-          </app-popover>
-        </div>
-      </div>
+      <ng-container *ngTemplateOutlet="totalPriceCard; context: {cart}"></ng-container>
     </div>
 
   </div>
 </div>
+
+
+<!-------------------- TEMPLATES ----------------------->
+
+<!-- CARD with total price -->
+<ng-template #totalPriceCard let-cart="cart">
+  <div class="card cardWrapper text-center">
+    <div class="card-header"></div>
+    <!-- Body -->
+    <div class="card-body">
+      <div class="card-title">
+        <div class="row">
+          <div class="col">
+            <h3> Total Price: </h3>
+          </div>
+          <div class="col">
+            <h3> {{cart | totalPrice}} </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="card-footer">
+      <app-popover placement="bottom" offset="[0,25]">
+        <button class=" btn btn-success btnCheckout" (click)="checkoutHandler()" [disabled]="!cart.length">PROCEED
+          TO CHECKOUT
+        </button>
+      </app-popover>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- Message for empty cart -->
+<ng-template #cartEmpty let-cart="cart">
+  <app-message variant='info' [trigger]="!cart.length">
+    Your cart is empty
+    <button (click)="location.back()" class="btn btn-outline-primary btn-message">Go Back</button>
+  </app-message>
+</ng-template>
